@@ -34,7 +34,12 @@ export class PersonalComponent {
     this.store.select("personalData").subscribe(result => {
       this.personalDataSource = result.personalInformation;
       console.log('result de vuelta', this.personalDataSource )
-      //this.getName.setValue
+
+      this.getName.setValue(this.personalDataSource.name)
+      this.getLastName.setValue(this.personalDataSource.lastName)
+      this.getAge.setValue(this.personalDataSource.age)
+      this.getEmail.setValue(this.personalDataSource.email)
+      this.getCellphone.setValue(this.personalDataSource.cellphone)
     })
   }
 

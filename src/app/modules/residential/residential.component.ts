@@ -31,6 +31,11 @@ export class ResidentialComponent {
     this.store.select("residentialData").subscribe(result => {
       this.residentialDataSource = result.residentialInformation;
       console.log('result de vuelta', this.residentialDataSource )
+
+      this.getAddress.setValue(this.residentialDataSource.address)
+      this.getNeighborhood.setValue(this.residentialDataSource.neighborhood)
+      this.getApartmentNumber.setValue(this.residentialDataSource.apartmentNumber)
+      this.getCity.setValue(this.residentialDataSource.city)
     })
   }
 
@@ -54,8 +59,6 @@ export class ResidentialComponent {
   }
 
   saveResidentialInformation(residentialData: FormGroup){
-    console.log('dataResidential', residentialData.value)
-
     this.store.dispatch(storeResidentialData(
       {
         residentialInformation: residentialData.value

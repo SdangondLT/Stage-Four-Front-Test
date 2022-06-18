@@ -4,7 +4,7 @@
     <div class="address">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Dirección de Residencia:</mat-label>
-        <input matInput formControlName="address" >{{ residentialDataSource.address }}
+        <input matInput formControlName="address" >
         <mat-error *ngIf="getAddress?.hasError('required')">
           Field is <strong>required</strong>
         </mat-error>
@@ -13,7 +13,7 @@
     <div class="neighborhood">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Barrio:</mat-label>
-        <input matInput formControlName="neighborhood" >{{ residentialDataSource.neighborhood }}
+        <input matInput formControlName="neighborhood" >
         <mat-error *ngIf="getNeighborhood?.hasError('required')">
           Field is <strong>required</strong>
         </mat-error>
@@ -22,7 +22,7 @@
     <div class="apartmentNumber">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Número de Apartamento:</mat-label>
-        <input matInput formControlName="apartmentNumber" >{{ residentialDataSource.apartmentNumber }}
+        <input matInput formControlName="apartmentNumber" >
         <mat-error *ngIf="getApartmentNumber?.hasError('required')">
           Field is <strong>required</strong>
         </mat-error>
@@ -31,7 +31,7 @@
     <div class="city">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Ciudad:</mat-label>
-        <input matInput formControlName="city" >{{ residentialDataSource.city }}
+        <input matInput formControlName="city" >
         <mat-error *ngIf="getCity?.hasError('required')">
           Field is <strong>required</strong>
         </mat-error>

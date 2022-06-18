@@ -4,7 +4,7 @@
     <div class="name">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Nombre:</mat-label>
-        <input matInput formControlName="name" >{{ personalDataSource.name }}
+        <input matInput formControlName="name" >
         <mat-error *ngIf="getName?.hasError('required')">
           Field is <strong>required</strong>
         </mat-error>
@@ -13,7 +13,7 @@
     <div class="lastName">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Apellido:</mat-label>
-        <input matInput formControlName="lastName" >{{ personalDataSource.lastName }}
+        <input matInput formControlName="lastName" >
         <mat-error *ngIf="getLastName?.hasError('required')">
           Field is <strong>required</strong>
         </mat-error>
@@ -22,7 +22,7 @@
     <div class="age">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Edad:</mat-label>
-        <input matInput formControlName="age" >{{ personalDataSource.age }}
+        <input matInput formControlName="age">
         <mat-error *ngIf="getAge?.hasError('required')">
           Field is <strong>required</strong>
         </mat-error>
@@ -32,7 +32,6 @@
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email:</mat-label>
         <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
-        {{ personalDataSource.email }}
         <mat-error *ngIf="getEmail?.hasError('email') && !getEmail?.hasError('required')">
           Please enter a valid email address
         </mat-error>
@@ -44,7 +43,7 @@
     <div class="cellphone">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Telefono:</mat-label>
-        <input matInput formControlName="cellphone" >{{ personalDataSource.cellphone }}
+        <input matInput formControlName="cellphone" >
         <mat-error *ngIf="getCellphone?.hasError('required')">
           Field is <strong>required</strong>
         </mat-error>
