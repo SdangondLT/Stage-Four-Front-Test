@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { storeResidentialData } from '@app-core/store/actions/residential-data.action';
 import { AppState } from '@app-core/store/models/app.model';
+import { IDeactivateModule } from '@app-core/store/models/deactivateModule.model';
 import { ResidentialInformationInterface } from '@app-models/personal-information.model';
 import { Store } from '@ngrx/store';
 
@@ -10,7 +11,7 @@ import { Store } from '@ngrx/store';
   templateUrl: './residential.component.html',
   styleUrls: ['./residential.component.scss']
 })
-export class ResidentialComponent {
+export class ResidentialComponent implements IDeactivateModule {
   residentialInformationForm: FormGroup;
   residentialDataSource: ResidentialInformationInterface;
 
@@ -64,6 +65,20 @@ export class ResidentialComponent {
         residentialInformation: residentialData.value
       }
     ))
+  }
+
+  public canGoNextView(): boolean {
+    if(
+         this.getAddress.value != ""
+      && this.getNeighborhood.value != ""
+      && this.getApartmentNumber.value != ""
+      && this.getCity.value != ""
+    ) {
+      return true;
+    } else {
+      alert('Por favor completar todos los campos requeridos');
+      return false;
+    }
   }
 
 }

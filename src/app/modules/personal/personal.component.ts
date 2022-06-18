@@ -4,13 +4,14 @@ import { AppState } from '@app-core/store/models/app.model';
 import { Store } from '@ngrx/store';
 import { storePersonalData } from '@app-core/store/actions/personal-data.action';
 import { PersonalInformationInterface } from '@app-models/personal-information.model';
+import { IDeactivateModule } from '@app-core/store/models/deactivateModule.model';
 
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.component.html',
   styleUrls: ['./personal.component.scss']
 })
-export class PersonalComponent {
+export class PersonalComponent implements IDeactivateModule {
   personalInformationForm: FormGroup;
   personalDataSource: PersonalInformationInterface;
 
@@ -33,8 +34,6 @@ export class PersonalComponent {
 
     this.store.select("personalData").subscribe(result => {
       this.personalDataSource = result.personalInformation;
-      console.log('result de vuelta', this.personalDataSource )
-
       this.getName.setValue(this.personalDataSource.name)
       this.getLastName.setValue(this.personalDataSource.lastName)
       this.getAge.setValue(this.personalDataSource.age)
@@ -70,5 +69,20 @@ export class PersonalComponent {
     this.store.dispatch(
       storePersonalData({ personalInformation: personalDatavalue.value}
     ))
+  }
+
+  public canGoNextView(): boolean {
+    if(
+         this.getName.value != ""
+      && this.getLastName.value != ""
+      && this.getAge.value != ""
+      && this.getEmail.value != ""
+      && this.getCellphone.value != ""
+    ) {
+      return true;
+    } else {
+      alert('Por favor completar todos los campos requeridos');
+      return false;
+    }
   }
 }
