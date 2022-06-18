@@ -1,0 +1,47 @@
+<div >
+  <h2>Informacion Residencial</h2>
+  <form [formGroup]="residentialInformationForm">
+    <div class="address">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Dirección de Residencia:</mat-label>
+        <input matInput formControlName="address" >{{ residentialDataSource.address }}
+        <mat-error *ngIf="getAddress?.hasError('required')">
+          Field is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="neighborhood">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Barrio:</mat-label>
+        <input matInput formControlName="neighborhood" >{{ residentialDataSource.neighborhood }}
+        <mat-error *ngIf="getNeighborhood?.hasError('required')">
+          Field is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="apartmentNumber">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Número de Apartamento:</mat-label>
+        <input matInput formControlName="apartmentNumber" >{{ residentialDataSource.apartmentNumber }}
+        <mat-error *ngIf="getApartmentNumber?.hasError('required')">
+          Field is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="city">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ciudad:</mat-label>
+        <input matInput formControlName="city" >{{ residentialDataSource.city }}
+        <mat-error *ngIf="getCity?.hasError('required')">
+          Field is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="save">
+      <button mat-raised-button color="primary"
+        (click)="saveResidentialInformation(residentialInformationForm)"
+        routerLink="/resume"
+      >Save</button>
+    </div>
+  </form>
+</div>
