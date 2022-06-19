@@ -31,8 +31,6 @@ export class ResidentialComponent implements IDeactivateModule {
 
     this.store.select("residentialData").subscribe(result => {
       this.residentialDataSource = result.residentialInformation;
-      console.log('result de vuelta', this.residentialDataSource )
-
       this.getAddress.setValue(this.residentialDataSource.address)
       this.getNeighborhood.setValue(this.residentialDataSource.neighborhood)
       this.getApartmentNumber.setValue(this.residentialDataSource.apartmentNumber)
